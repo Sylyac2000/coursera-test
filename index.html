@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myFirstApp">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Coursera</title>
+    <title>Name calculator</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"
         integrity="sha512-Wm/3E5PWWcD+NvPum3WQwPYiO16Mi6zBPwqnP/42f0NOKvVO3+35+fbgVgR3wQXld2K7aW5gNoI6TgLZnfkKhQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="app.js"></script>
+    <style>
+        body{
+            font-size: 1.3em;
+        }
+    </style>
 </head>
 
-<body>
-    <h1>My First Angular App</h1>
-    <div ng-controller="MyFirstController">Hello {{name}}
-        <br>zzq{{sayHello()}}
-        <input type="text" ng-model="name">
+<body ng-app="NameCalculator">
+<h1>Name Calculator</h1>
+<div ng-controller="NameCalculatorController">
+    <div>
+        Your name:
+        <input type="text" ng-model="name" ng-keyup="displayNumeric();">
     </div>
+    <div>Total Numeric value of person's name is: {{totalValue}}</div>
+</div>
 
 </body>
 

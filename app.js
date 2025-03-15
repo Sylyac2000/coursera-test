@@ -1,11 +1,23 @@
 (function () {
     'use strict';
- 
-    angular.module('myFirstApp', [])
-        .controller("MyFirstController", function ($scope){
-            $scope.name = "John";
-            $scope.sayHello = function (){
-                return "Hello SY";
+
+    angular.module('NameCalculator', [])
+        .controller("NameCalculatorController", function ($scope) {
+            $scope.name = "";
+            $scope.totalValue = 0;
+            $scope.displayNumeric = function () {
+                let totalNameValue = calculateNumericForString($scope.name);
+                $scope.totalValue = totalNameValue;
+                console.log($scope.totalValue, $scope.name.length);
+            };
+
+            function calculateNumericForString(string) {
+                let totalStringValue = 0;
+                for (let i = 0; i < string.length; i++) {
+                    totalStringValue += string.charCodeAt(i)
+                }
+                return totalStringValue;
             }
         });
+
 })()
